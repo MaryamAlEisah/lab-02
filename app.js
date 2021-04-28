@@ -129,25 +129,25 @@ break;
 
 //Q7
 
-let q7 = prompt('Could you guess my favorite color, you have six opportunities?');
+let score =0;
 
 
-let favCol = ['red', 'green', 'blue', 'purple', 'yellow'];
-console.log(i);
+let favCol = ['red', 'green', 'blue', 'purple', 'yellow', 'orange','white']
+
 for (let i = 0; i < 6; i++);{
-  console.log(favCol[i]);
+
+  let q7 = prompt('Could you guess my favorite color, you have six opportunities?');
 
 }
 
-for (let i = 0; i <= favCol.length; i++){
-  if (favCol.tolocalelowerCase === favCol[i]){
-
-  }
-  alert('yes you are correct');
+    for (let i = 0; i <= favCol.length; i++){
+        if (q7 == favCol[i]){
+    alert('yes you are correct');
+    score++;
+    
   break;
-} 
-else {
-  alert('you are wrong , try again!');
-}
 
-alert(' my my favorite color are : red,green,blue,purple,yellow');
+} 
+
+alert('Great! your scoor is ${score} have a nice day');
+}
