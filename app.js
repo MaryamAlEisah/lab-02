@@ -1,31 +1,32 @@
-'use strict';
+ 'use strict';
 
-let userName = prompt('Hi, Could you please enter your name');
+ let userName = prompt('Hi, Could you please enter your name');
 console.log(userName);
 
 alert(userName + 'Welcome to my page');
 
 
- // I will ask user 5 yes/no Q
+  // I will ask user 5 yes/no Q
 
-
+ let totalCorrectAnswers=0;
 let q1=prompt('Do I have a car?');
 switch(q1.toLowerCase()){
   case 'yes': 
   case 'y':
     alert('no I do not have one');
-    console.log('yes I have one');
-    break;
+    console.log('no I dont have any');
+      break;
     case 'no':
     case 'n':
     alert('you are correct');
     console.log('no I have not');
+    totalCorrectAnswers++;
 break;
     default:
       console.log('please ask me again');
       alert('please enter yes or no');
  
-}
+ }
 
 let q2=prompt('Do I like pasta ?');
 switch(q1.toLowerCase()){
@@ -33,7 +34,8 @@ switch(q1.toLowerCase()){
   case 'y' :
     alert(' no I dont like it');
     console.log('yes I like it');
-    break;
+    totalCorrectAnswers++;
+      break;
     case 'no': 
     case 'n':
     alert('you are correct');
@@ -57,6 +59,8 @@ switch(q1.toLowerCase()){
     case 'n' :
     alert('you are correct');
     console.log('no I do not like reading newspaper');
+    totalCorrectAnswers++;
+    break;
     default:
       console.log('please ask me again');
       alert('enter yes or no');
@@ -70,6 +74,7 @@ switch(q1.toLowerCase()){
   case 'y' :
     alert('no I do not');
     console.log('yes I do');
+    totalCorrectAnswers++;
     break;
     case 'no': 
     case 'n':
@@ -88,6 +93,7 @@ switch(q1.toLowerCase()){
   case 'y':
    alert('no I do not');
    console.log('yes I do');
+   totalCorrectAnswers++;
     break;
     case 'no': 
     case 'n':
@@ -100,54 +106,103 @@ switch(q1.toLowerCase()){
 }
 
 // Q6
-
-let q6=prompt('Could you guess my age in years, you have four opportunities? ');
+let question="Could you guess my age in years, you have four opportunities? ";
+let q6=prompt(question);
 
 let myAge = 35 ;
-
-for (let i = 0; i < 4 ; i++){
-console.log(i);
+let status=false;
+for (let i = 0; i < 3 ; i++){
  
-  if (i > 35) {
-  alert('Its too high, you should try again!');
+ 
+  if (q6 > 35 || q6 < 30) {
+  alert('Its too far, you should try again!');
   console.log(i);
-  continue;}
+   }
   
 
-  if (i < 35) { 
-alert('Its too low, you should try again!');
+  else if (  q6 >= 30 && q6 < 35) { 
+alert('Its too close, you should try again!');
 console.log(i);
 
- continue; }
+   }
 
- if (i == 35) {
-  alert('Great, its correct');  
+ else if (q6 == 35)
+  {
+  alert('Great, its correct'); 
+  totalCorrectAnswers++;
+   status=true;
 break;
   }
+  q6=prompt(question);
 }
-
+if(!status)
+alert("sorry you have took out you attempts , my age was 35")
 
 //Q7
+ 
+let top10=['red','white','blue'];
+let favMovie;
 
-let score =0;
+let quesition="which of the next colors were the author's favorite \n,"+
+"(you have to guess 1 movie each attemp) \n"+
+  "-red \n"+
+  "-purple \n"+
+  "-white \n"+
+  "-blue \n"+
+  "-orange \n"+
+  "-green \n"+
+  "-black \n"+
+  "-yellow"
+favMovie=prompt(quesition);
+                     let answerState=false;
+                     let correctAnswer=0;
+                     let gussing=0;
+                     let indexNo=-1;
 
+       while(gussing < 5  && correctAnswer !=2)
+       {
+         for(var j = 0 ; j<top10.length;j++)
+         {
+           if(favMovie.toLowerCase()==top10[j])
+           {              
+              answerState=true;
+              indexNo=j;
+            break;
+             }
+            else{
+              answerState=false
+             
+            }
+          
+         }
+         if(answerState)
+         {
+           alert(top10[j]+" is a correct answer");
+           console.log(j)
+           correctAnswer++;
+           
+           alert(3-correctAnswer+" left to guess")
+         }
+         else{
+           alert(favMovie+" is a wrong answer")
+           alert(5-gussing+" attempts left to guess");
+           
+         }
+         gussing++;
+        
+         favMovie=prompt(quesition);
+        
+       }
+       totalCorrectAnswers+=correctAnswer+1;
+       
 
-let favCol = ['red', 'green', 'blue', 'purple', 'yellow', 'orange','white']
+        if(gussing>2)
+        {
+        
+       alert(" you have completed all your attemps , hard luck")
+        }
+       else
+       alert("Good Job you have gussed all the correctly correctly")
 
-for (let i = 0; i < 6; i++);{
-
-  let q7 = prompt('Could you guess my favorite color, you have six opportunities?');
-
-}
-
-    for (let i = 0; i <= favCol.length; i++){
-        if (q7 == favCol[i]){
-    alert('yes you are correct');
-    score++;
-    
-  break;
-
-} 
-
-alert('Great! your scoor is ${score} have a nice day');
-}
+       alert(userName +" your total points are "+ totalCorrectAnswers+"\n"
+       +"hope we can see you in another game")
