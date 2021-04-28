@@ -99,8 +99,55 @@ switch(q1.toLowerCase()){
  
 }
 
+// Q6
+
+let q6=prompt('Could you guess my age in years, you have four opportunities? ');
+
+let myAge = 35 ;
+
+for (let i = 0; i < 4 ; i++){
+console.log(i);
+ 
+  if (i > 35) {
+  alert('Its too high, you should try again!');
+  console.log(i);
+  continue;}
+  
+
+  if (i < 35) { 
+alert('Its too low, you should try again!');
+console.log(i);
+
+ continue; }
+
+ if (i == 35) {
+  alert('Great, its correct');  
+break;
+  }
+}
 
 
+//Q7
+
+let q7 = prompt('Could you guess my favorite color, you have six opportunities?');
 
 
+let favCol = ['red', 'green', 'blue', 'purple', 'yellow'];
+console.log(i);
+for (let i = 0; i < 6; i++);{
+  console.log(favCol[i]);
 
+}
+
+for (let i = 0; i <= favCol.length; i++){
+  if (favCol.tolocalelowerCase === favCol[i]){
+
+  }
+  alert('yes you are correct');
+  break;
+} 
+else {
+  alert('you are wrong , try again!');
+}
+
+alert(' my my favorite color are : red,green,blue,purple,yellow');
